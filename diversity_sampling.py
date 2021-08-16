@@ -200,17 +200,17 @@ class DiversitySampling():
                             
                 n=0
                 for output in neuron_outputs:
-                    validation_rankings[n][v] = output
+                    validation_rankings[n][v] = output # mtfelix: 第一维是所有神经元，第二维是所有验证集数据
                     n += 1
                             
                 v += 1
         
         # Rank-order the validation scores 
-        v=0
+        n=0
         for validation in validation_rankings:
-            validation.sort() 
-            validation_rankings[v] = validation
-            v += 1
+            validation.sort() # mtfelix: 根据每个神经元，对所有数据得分进行排序
+            validation_rankings[n] = validation # 更新
+            n += 1
           
         return validation_rankings 
     
